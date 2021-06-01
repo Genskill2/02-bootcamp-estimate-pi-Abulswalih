@@ -30,3 +30,24 @@ class TestMC(unittest.TestCase):
     
 if __name__ == "__main__":
     unittest.main()
+
+
+
+
+
+def wallis(a):
+    res=1
+    for i in range(1,a+1):
+        res*=(4*(i**2)/(4*(i**2)-1))
+    return 2*res
+    
+def monte_carlo(n):    
+    import random
+    count=0
+    for i in range(n):
+        coords = [random.random(),random.random()]
+        dis=(coords[0]**2+coords[1]**2)**0.5
+        if dis<=1:
+            count+=1
+    return 4*(count/n)
+
